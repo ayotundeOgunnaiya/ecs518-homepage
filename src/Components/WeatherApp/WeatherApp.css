@@ -1,0 +1,129 @@
+.container{
+    width: 607px;
+    height: 829px;
+    margin: auto;
+    margin-top: 75px;
+    border-radius: 12px;
+    background-image: linear-gradient(180deg,#170941, #854AA4);
+}
+
+.search-bar{
+    display: flex;
+    justify-content: center;
+    gap: 14px;
+    padding-top: 60px;
+    padding-bottom: 15px;
+}
+
+.search-bar input{
+    display: flex;
+    width: 362px;
+    height: 78px;
+    background-color: #ebfffc;
+    border: none;
+    outline: none;
+    border-radius: 40px;
+    padding-left: 40px;
+    color: #626262;
+    font-size: 20px;
+    font-weight: 400;
+}
+
+.search-icon{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 78px;
+    height: 78px;
+    background: #ebfffc;
+    border-radius: 40px;
+    cursor: pointer;
+}
+
+.weather-location{
+    display: flex;
+    justify-content: center;
+    color: #ebfffc;
+    font-size: 80px;
+    font-weight: 400;
+    font-family: "Josefin Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+}
+
+
+.weather-temp{
+    display: flex;
+    justify-content: center;
+    color: #ebfffc;
+    font-size: 60px;
+    font-weight: 400;
+    font-family: "Josefin Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+}
+
+.weather-status{
+    display: flex;
+    justify-content: center;
+    color: #ebfffc;
+    font-size: 22px;
+    font-weight: 150;
+    font-family: "Josefin Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+}
+
+.weather-range{
+    display: flex;
+    justify-content: center;
+    color: #ebfffc;
+    font-size: 22px;
+    font-weight: 150;
+    font-family: "Josefin Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+}
+
+.min-temp{
+    padding-left: 10px;
+}
+.max-temp{
+    padding-right: 10px;
+}
+
+.data-container{
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+    color: #ebfffc;
+}
+
+.element{
+    margin:auto;
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    background-color: #321b57;
+    border-radius: 15px;
+    padding: 15px;
+    width: 200px;
+}
+
+.data{
+    font-size: 34px;
+    font-weight: 150;
+    font-family: "Josefin Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+    align-items: center;
+}
+
+.text{
+    font-size: 18px;
+    font-width: 400
+}
+
+.icon{
+    margin-top: 10px;
+}
