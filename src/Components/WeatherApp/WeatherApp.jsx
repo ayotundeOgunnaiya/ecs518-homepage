@@ -11,7 +11,8 @@ import rain_icon from "../Assets/rain.png";
 import snow_icon from "../Assets/snow.png";
 
 export const WeatherApp = () => {
-    let api_key = "e4b230777c44c82b13372e9069740b59";
+    /* api key needed in line below */
+    let api_key = "";
 
     const search = async () => {
         const element = document.getElementsByClassName("location")
