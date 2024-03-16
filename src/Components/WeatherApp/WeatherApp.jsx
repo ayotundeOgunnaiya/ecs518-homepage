@@ -11,7 +11,8 @@ import rain_icon from "../Assets/rain.png";
 import snow_icon from "../Assets/snow.png";
 
 export const WeatherApp = () => {
-    let api_key = "e4b230777c44c82b13372e9069740b59";
+    /* api key needed in line below */
+    let api_key = "";
 
     const search = async () => {
         const element = document.getElementsByClassName("location")
@@ -20,10 +21,13 @@ export const WeatherApp = () => {
             return 0;
         }
         let url = `https://api.openweathermap.org/data/2.5/weather?q=${element[0].value}&units=Metric&appid=${api_key}`;
-        
+        let url2 = `https://pro.openweathermap.org/data/2.5/forecast/hourly?q=${element[0].value}&units=Metric&appid=${api_key}`;
         let response = await fetch(url);
         let data = await response.json();
+        let response2 = await fetch(url2)
+        let data2 = await response2.json()
 
+        const divTableCell = document.getElementsByClassName("divTableCell")
         const cloud_cover = document.getElementsByClassName("cloud-cover")
         const sunset = document.getElementsByClassName("sunset")
         const temperature = document.getElementsByClassName("weather-temp")
@@ -33,10 +37,10 @@ export const WeatherApp = () => {
         const status = document.getElementsByClassName("weather-status")
 
         status[0].innerHTML = data.weather[0].description;
-        temperature[0].innerHTML = Math.floor(data.main.temp) + "°C";
+        temperature[0].innerHTML = Math.floor(data.main.temp) + "°";
         city[0].innerHTML = data.name;
-        min[0].innerHTML = "min: " + Math.floor(data.main.temp_min) +"°C";
-        max[0].innerHTML = "max: " + Math.floor(data.main.temp_max) +"°C";
+        min[0].innerHTML = "min: " + Math.floor(data.main.temp_min) +"°";
+        max[0].innerHTML = "max: " + Math.floor(data.main.temp_max) +"°";
         cloud_cover[0].innerHTML = data.clouds.all + "%";
 
         var utcSeconds = data.sys.sunset;
@@ -47,6 +51,22 @@ export const WeatherApp = () => {
         const hrs = String(d.getHours()).padStart(2, '0');
         const mins = String(d.getMinutes()).padStart(2, '0');
         sunset[0].innerHTML = hrs + ":" + mins
+        
+        for(let i=0; i<5; i++) {
+            utcSeconds = data2.list[i].dt
+            d = new Date(0)
+            d.setUTCSeconds(utcSeconds);
+            d.getTime()
+            divTableCell[i].innerHTML = String(d.getHours()).padStart(2, '0');
+        }
+        /* i-10 is because the index is for the table cell and we want the temperature at the current time not the current time +10 */
+        for(let i=10; i<15; i++) {
+            divTableCell[i].innerHTML = Math.floor(data2.list[i-10].main.temp) +"°";
+
+        }
+        
+        
+        
       }
   return (
     <div className='container'>
@@ -63,6 +83,37 @@ export const WeatherApp = () => {
             <div className="max-temp"> Max: 24° </div>
             <div className="min-temp"> Min: 8° </div>
         </div>
+        <div className="data-container">
+            <div className="element">
+                <h5>Hourly Forecast <br /></h5>
+                <div class="divTable">
+                    <div class="divTableBody">
+                        <div class="divTableRow">
+                            <div class="divTableCell">now</div>
+                            <div class="divTableCell">23</div> 
+                            <div class="divTableCell">00</div>
+                            <div class="divTableCell">01</div>
+                            <div class="divTableCell">02&nbsp;</div>
+                        </div>
+                        <div class="divTableRow">
+                            <div class="divTableCell">&nbsp;</div>
+                            <div class="divTableCell">&nbsp;</div>
+                            <div class="divTableCell">&nbsp;</div>
+                            <div class="divTableCell">&nbsp;</div>
+                            <div class="divTableCell">&nbsp;</div>
+                        </div>
+                        <div class="divTableRow">
+                            <div class="divTableCell">&nbsp;8</div>
+                            <div class="divTableCell">8</div>
+                            <div class="divTableCell">9</div>
+                            <div class="divTableCell">9</div>
+                            <div class="divTableCell">9</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <div className="data-container">
             <div className="element">
                 <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/bf1bef42aa3b43fde3f2c541be4889c42cbaeca65e079ddf8abb2f1c63244e1e?apiKey=f3548c2a5b0a43929c18ec761a37ebba&" alt="" className='icon'/>

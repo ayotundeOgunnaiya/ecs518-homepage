@@ -104,10 +104,13 @@
     display: flex;
     align-items: flex-start;
     gap: 12px;
-    background-color: #321b57;
+    background-color: rgba(46, 23, 86, 0.46);;
     border-radius: 15px;
     padding: 15px;
-    width: 200px;
+    width: auto;
+    border-color: black;
+    border-style: solid;
+    border-width: 1px;
 }
 
 .data{
@@ -121,9 +124,39 @@
 
 .text{
     font-size: 18px;
-    font-width: 400
+    font-width: 400;
 }
 
 .icon{
     margin-top: 10px;
 }
+
+.divTable{
+	display: table;
+	width: 100%px;
+}
+.divTableRow {
+	display: table-row;
+}
+.divTableHeading {
+	background-color: #EEE;
+	display: table-header-group;
+}
+.divTableCell, .divTableHead {
+	display: table-cell;
+	padding: 3px 10px;
+}
+.divTableHeading {
+	background-color: #EEE;
+	display: table-header-group;
+	font-weight: bold;
+}
+.divTableFoot {
+	background-color: #EEE;
+	display: table-footer-group;
+	font-weight: bold;
+}
+.divTableBody {
+	display: table-row-group;
+}
+
